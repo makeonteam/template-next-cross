@@ -1,0 +1,11 @@
+appId: app.makeon.desktop
+directories:
+  output: out
+files:
+  - app
+  - src
+  - package.json
+mac:
+  target: dmg
+win:
+  target: nsis

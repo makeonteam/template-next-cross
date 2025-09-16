@@ -1,0 +1,20 @@
+{
+  "name": "makeon-desktop",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "main": "src/main.js",
+  "scripts": {
+    "dev": "NODE_ENV=development electron .",
+    "sync": "rm -rf app && cp -r -l ../out app",
+    "start": "electron .",
+    "package": "electron-builder"
+  },
+  "dependencies": {
+    "electron-serve": "^3.0.0"
+  },
+  "devDependencies": {
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12"
+  }
+}
