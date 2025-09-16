@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ThemeSwitcher from "@/shared/components/ThemeSwitcher";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <p className="text-md text-foreground">
         Open Cards {"=>"} Notes, Boards, Snips, Tasks, Chats
       </p>
+      <ThemeSwitcher />
     </div>
   );
 }
