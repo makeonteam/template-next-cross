@@ -3,6 +3,12 @@
 
 @custom-variant dark (html[data-theme="dark"] &);
 
+:root,
+html,
+body {
+  height: 100%;
+}
+
 :root {
   --color-lighter: #fafafa;
   --color-normal: #f5f5f5;
