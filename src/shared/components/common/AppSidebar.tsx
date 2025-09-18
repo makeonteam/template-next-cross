@@ -1,4 +1,5 @@
-import { ChevronDown } from "lucide-react";
+"use client";
+import { ChevronDownIcon } from "lucide-react";
 import {
   Sidebar,
   SidebarHeader,
@@ -17,26 +18,30 @@ import {
   DropdownMenuItem,
 } from "@components/shadcn/ui/dropdown-menu";
 
-export function AppSidebar() {
+import SidebarToggler from "@components/common/SidebarToggler";
+
+export function AppSidebar({
+  className,
+}: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar>
+    <Sidebar className={className}>
       <SidebarHeader>
         <SidebarMenu>
+          <SidebarMenuItem className="flex justify-between">
+            <SidebarToggler variant="normal" />
+            <SidebarToggler variant="normal" />
+          </SidebarMenuItem>
           <SidebarMenuItem>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton>
-                  Select Workspace
-                  <ChevronDown className="ml-auto" />
+                  West Wong
+                  <ChevronDownIcon className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-(--radix-popper-anchor-width)">
-                <DropdownMenuItem>
-                  <span>Acme Inc</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Acme Corp.</span>
-                </DropdownMenuItem>
+                <DropdownMenuItem>West Wong</DropdownMenuItem>
+                <DropdownMenuItem>Galaxy Insect</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>

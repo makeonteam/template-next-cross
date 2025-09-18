@@ -1,5 +1,5 @@
-import { SidebarProvider, SidebarTrigger } from "@components/shadcn/ui/sidebar";
-import { AppSidebar } from "@components/AppSidebar";
+import { SidebarProvider } from "@components/shadcn/ui/sidebar";
+import { AppSidebar } from "@components/common/AppSidebar";
 
 export default function MainLayout({
   children,
@@ -9,10 +9,7 @@ export default function MainLayout({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main>
-        <SidebarTrigger />
-        {children}
-      </main>
+      <main className="w-full min-h-full">{children}</main>
     </SidebarProvider>
   );
 }
