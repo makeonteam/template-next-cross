@@ -40,7 +40,7 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
 
   return (
     <Sidebar className={className}>
-      <SidebarHeader className="pb-0">
+      <SidebarHeader className="pt-safe pb-0">
         <SidebarMenu>
           <SidebarMenuItem className="flex justify-between">
             <SidebarToggler />
@@ -123,7 +123,7 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="pb-safe">
         <SidebarMenu>
           <SidebarMenuItem className="flex justify-between">
             <Button variant="ghost" size="icon">

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "../shared/styles/safe-area.css";
 
 /* can switch theme manually, with data-theme not class */
 @custom-variant dark (html[data-theme="dark"] &);

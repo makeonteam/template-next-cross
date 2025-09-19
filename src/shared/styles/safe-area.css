@@ -1,0 +1,85 @@
+.m-safe {
+  margin-top: var(--safe-area-inset-top);
+  margin-right: var(--safe-area-inset-right);
+  margin-bottom: var(--safe-area-inset-bottom);
+  margin-left: var(--safe-area-inset-left);
+}
+.mx-safe {
+  margin-right: var(--safe-area-inset-right);
+  margin-left: var(--safe-area-inset-left);
+}
+.my-safe {
+  margin-top: var(--safe-area-inset-top);
+  margin-bottom: var(--safe-area-inset-bottom);
+}
+.mt-safe {
+  margin-top: var(--safe-area-inset-top);
+}
+.mr-safe {
+  margin-right: var(--safe-area-inset-right);
+}
+.mb-safe {
+  margin-bottom: var(--safe-area-inset-bottom);
+}
+.ml-safe {
+  margin-left: var(--safe-area-inset-left);
+}
+.p-safe {
+  padding-top: var(--safe-area-inset-top);
+  padding-right: var(--safe-area-inset-right);
+  padding-bottom: var(--safe-area-inset-bottom);
+  padding-left: var(--safe-area-inset-left);
+}
+.px-safe {
+  padding-right: var(--safe-area-inset-right);
+  padding-left: var(--safe-area-inset-left);
+}
+.py-safe {
+  padding-top: var(--safe-area-inset-top);
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+.pt-safe {
+  padding-top: var(--safe-area-inset-top);
+}
+.pr-safe {
+  padding-right: var(--safe-area-inset-right);
+}
+.pb-safe {
+  padding-bottom: var(--safe-area-inset-bottom);
+}
+.pl-safe {
+  padding-left: var(--safe-area-inset-left);
+}
+.top-safe {
+  top: var(--safe-area-inset-top);
+}
+.right-safe {
+  right: var(--safe-area-inset-right);
+}
+.bottom-safe {
+  bottom: var(--safe-area-inset-bottom);
+}
+.left-safe {
+  left: var(--safe-area-inset-left);
+}
+.min-h-screen-safe {
+  min-height: calc(
+    100vh -
+    (var(--safe-area-inset-top) + var(--safe-area-inset-bottom))
+  );
+  min-height: -webkit-fill-available;
+}
+.max-h-screen-safe {
+  max-height: calc(
+    100vh -
+    (var(--safe-area-inset-top) + var(--safe-area-inset-bottom))
+  );
+  max-height: -webkit-fill-available;
+}
+.h-screen-safe {
+  height: calc(
+    100vh -
+    (var(--safe-area-inset-top) + var(--safe-area-inset-bottom))
+  );
+  height: -webkit-fill-available;
+}

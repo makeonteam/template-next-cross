@@ -1,7 +1,8 @@
 import "./layout.css";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { SafeAreaInitializer } from "@utils/SafeArea";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,6 +20,10 @@ export const metadata: Metadata = {
   description: "Open Cards => Notes, Boards, Snips, Tasks, Chats",
 };
 
+export const viewport: Viewport = {
+  viewportFit: "cover",
+};
+
 // root layout for the entire app
 // children is the content of each page
 export default function RootLayout({
@@ -29,9 +34,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh w-dvw`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-dvh w-dvw overflow-hidden`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <SafeAreaInitializer />
+        </ThemeProvider>
       </body>
     </html>
   );
