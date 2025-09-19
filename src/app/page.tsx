@@ -1,8 +1,10 @@
 import Link from "next/link";
+
 import { Button } from "@components/shadcn/ui/button";
 import ThemeSwitcher from "@components/ThemeSwitcher";
 
-export default function Home() {
+// the page for children in layout
+export default function Page() {
   return (
     <div className="flex h-full w-full overflow-hidden">
       <div className="flex flex-col gap-2 p-2">
@@ -11,10 +13,10 @@ export default function Home() {
           Open Cards {"=>"} Notes, Boards, Snips, Tasks, Chats
         </p>
         <Button asChild>
-          <Link href="/boards">Goto boards</Link>
+          <Link href="/boards">Goto /boards</Link>
         </Button>
         <Button asChild>
-          <Link href="/notes">Goto notes</Link>
+          <Link href="/notes">Goto /notes</Link>
         </Button>
         <ThemeSwitcher />
       </div>

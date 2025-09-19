@@ -1,6 +1,7 @@
 "use client";
 import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
+
 import { AppTopbar } from "@components/common/AppTopbar";
 
 function InnerPage() {
@@ -8,11 +9,13 @@ function InnerPage() {
   const id = searchParams.get("id");
 
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex flex-col h-full w-full">
       <AppTopbar>
         <span>Notes</span>
       </AppTopbar>
-      <h1 className="p-2">url-path is /note?id={id ? id : "null"}</h1>
+      <div className="h-full w-full">
+        <h1 className="px-4 py-1">url-path is /note?id={id ? id : "null"}</h1>
+      </div>
     </div>
   );
 }

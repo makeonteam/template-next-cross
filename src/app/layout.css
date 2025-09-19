@@ -1,8 +1,10 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* can switch theme manually, with data-theme not class */
 @custom-variant dark (html[data-theme="dark"] &);
 
+/* spa app get full height */
 :root,
 html,
 body {
@@ -119,7 +121,7 @@ body {
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* diy */
+/* your custom theme */
 :root {
   --bg-lighter: #fafafa;
   --bg-normal: #f5f5f5;
@@ -127,7 +129,7 @@ body {
   /* --background: var(--color-normal); */
   /* --foreground: var(--color-gray-900); */
   --hover-100: oklch(0% 0 0);
-  --hover-10: oklch(0% 0 0 / 0.1);
+  --hover-10: oklch(0% 0 0 / 0.1); /* used inner no --color-hover-10 */
 }
 [data-theme="dark"] {
   --bg-lighter: #2a2a2a;
@@ -136,8 +138,9 @@ body {
   /* --background: var(--color-normal); */
   /* --foreground: var(--color-gray-100); */
   --hover-100: oklch(100% 0 0);
-  --hover-10: oklch(100% 0 0 / 0.1);
+  --hover-10: oklch(100% 0 0 / 0.1); /* used inner no --color-hover-10 */
 }
+/* with --color-name then you can use in tailwindcss like bg-name text-name/50 */
 @theme inline {
   --color-lighter: var(--bg-lighter);
   --color-normal: var(--bg-normal);

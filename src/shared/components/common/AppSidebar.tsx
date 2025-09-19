@@ -1,5 +1,13 @@
 "use client";
-import { ChevronDownIcon, PlusIcon } from "lucide-react";
+import { useState } from "react";
+import {
+  ChevronDownIcon,
+  EllipsisIcon,
+  SettingsIcon,
+  ImportIcon,
+} from "lucide-react";
+import Link from "next/link";
+
 import {
   Sidebar,
   SidebarHeader,
@@ -13,23 +21,22 @@ import {
   SidebarGroupContent,
   SidebarFooter,
 } from "@components/shadcn/ui/sidebar";
-
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
 } from "@components/shadcn/ui/dropdown-menu";
+import { Input } from "@components/shadcn/ui/input";
+import { Button } from "@components/shadcn/ui/button";
 
 import SidebarToggler from "@components/common/SidebarToggler";
 import { BackwardAndForward } from "@components/common/AppTopbar";
-import { Input } from "../shadcn/ui/input";
-
-import { useRouter } from "next/navigation";
 
 function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
-  const router = useRouter();
-  const tabs = [...Array(40)];
+  const [workspace, setWorkspace] = useState("West Wong");
+  const mockTabs = [...Array(40)];
 
   return (
     <Sidebar className={className}>
@@ -45,13 +52,22 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuButton>
-                  West Wong
+                  <span>West Wong</span>
                   <ChevronDownIcon className="ml-auto" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-(--radix-popper-anchor-width)">
-                <DropdownMenuItem>West Wong</DropdownMenuItem>
-                <DropdownMenuItem>Galaxy Insect</DropdownMenuItem>
+                <DropdownMenuRadioGroup
+                  value={workspace}
+                  onValueChange={setWorkspace}
+                >
+                  <DropdownMenuRadioItem value="West Wong">
+                    West Wong
+                  </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Galaxy Insect">
+                    Galaxy Insect
+                  </DropdownMenuRadioItem>
+                </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
@@ -64,26 +80,18 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
         <SidebarGroup className="p-0">
           <SidebarGroupLabel>Apps</SidebarGroupLabel>
           <SidebarGroupAction className="top-1.5 right-1">
-            <PlusIcon /> <span className="sr-only">Add app</span>
+            <EllipsisIcon /> <span className="sr-only">Setting</span>
           </SidebarGroupAction>
           <SidebarGroupContent>
             <SidebarMenu className="gap-[1px]">
               <SidebarMenuItem>
-                <SidebarMenuButton
-                  onClick={() => {
-                    router.push("/boards");
-                  }}
-                >
-                  Boards
+                <SidebarMenuButton asChild>
+                  <Link href="/boards">Boards</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton
-                  onClick={() => {
-                    router.push("/notes");
-                  }}
-                >
-                  Notes
+                <SidebarMenuButton asChild>
+                  <Link href="/notes">Notes</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -94,23 +102,19 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
         <SidebarGroup className="h-full">
           <SidebarGroupLabel>Tabs</SidebarGroupLabel>
           <SidebarGroupAction>
-            <PlusIcon /> <span className="sr-only">Add app</span>
+            <EllipsisIcon /> <span className="sr-only">Setting</span>
           </SidebarGroupAction>
           <SidebarGroupContent>
             <SidebarMenu className="gap-[1px]">
-              {tabs.map((_, index) => {
+              {mockTabs.map((_, index) => {
                 const tab = {
                   id: index,
                   name: `Note ${index + 1}`,
                 };
                 return (
                   <SidebarMenuItem key={tab.id}>
-                    <SidebarMenuButton
-                      onClick={() => {
-                        router.push(`/notes?id=${tab.id + 1}`);
-                      }}
-                    >
-                      {tab.name}
+                    <SidebarMenuButton asChild>
+                      <Link href={`/notes?id=${tab.id + 1}`}>{tab.name}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 );
@@ -119,7 +123,18 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter>Hello</SidebarFooter>
+      <SidebarFooter>
+        <SidebarMenu>
+          <SidebarMenuItem className="flex justify-between">
+            <Button variant="ghost" size="icon">
+              <SettingsIcon className="size-4.5" />
+            </Button>
+            <Button variant="ghost" size="icon">
+              <ImportIcon className="size-4.5" />
+            </Button>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
     </Sidebar>
   );
 }
