@@ -5,12 +5,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack --port 4001",
-    "build": "rm -rf desktop/app && next build --turbopack && cp -r -l out desktop/app",
+    "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "format-prettier": "prettier --write .",
-    "deploy": "next build --turbopack"
+    "format-prettier": "prettier --write ."
   },
   "dependencies": {
     "@capacitor-community/safe-area": "7.0.0-alpha.1",

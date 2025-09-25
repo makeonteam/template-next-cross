@@ -73,9 +73,9 @@ pnpm dev
 Alternatively, you can build the web app first and then run the Electron app.
 
 ```bash
-pnpm build # This will build the web app and copy it to the desktop/app directory
 cd desktop
-pnpm start
+yarn sync # This will copy the build to the desktop/app directory
+yarn start
 ```
 
 ### 3. Mobile App (Capacitor)
@@ -105,13 +105,17 @@ npx cap run ios
 pnpm build
 ```
 
-This will build the web app into the `out` directory and automatically copy it to `desktop/app` for Electron.
+This will build the web app into the `out` directory.
 
 ### 2. Desktop App (Electron)
 
+Ensure the web app has been built and synced:
+
 ```bash
+pnpm build # Build first
 cd desktop
-pnpm package
+yarn sync  # Then copy
+yarn package
 ```
 
 This will package the desktop application using `electron-builder`.

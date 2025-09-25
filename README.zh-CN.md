@@ -73,9 +73,9 @@ pnpm dev
 你也可以先构建 Web 应用，然后运行 Electron 应用。
 
 ```bash
-pnpm build # 这会构建 Web 应用并将其复制到 desktop/app 目录
 cd desktop
-pnpm start
+yarn sync # 这会将构建复制到 desktop/app 目录
+yarn start
 ```
 
 ### 3. 移动应用 (Capacitor)
@@ -105,13 +105,17 @@ npx cap run ios
 pnpm build
 ```
 
-这会将 Web 应用构建到 `out` 目录，并自动复制到 `desktop/app` 供 Electron 使用。
+这会将 Web 应用构建到 `out` 目录。
 
 ### 2. 桌面应用 (Electron)
 
+需要确保 Web 应用已构建并同步：
+
 ```bash
+pnpm build # 先构建
 cd desktop
-pnpm package
+yarn sync  # 再复制
+yarn package
 ```
 
 这会使用 `electron-builder` 打包桌面应用。
