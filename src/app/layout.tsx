@@ -1,7 +1,7 @@
 import "./layout.css";
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+import { Geist, Geist_Mono } from "next/font/google";
 import { SafeAreaInitializer } from "@utils/SafeArea";
 
 const geistSans = Geist({
@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   title: "MakeOn",
   description: "Open Cards => Notes, Boards, Snips, Tasks, Chats",
 };
-
 export const viewport: Viewport = {
   viewportFit: "cover",
 };

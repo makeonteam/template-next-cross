@@ -5,6 +5,9 @@ import {
   EllipsisIcon,
   SettingsIcon,
   ImportIcon,
+  MapIcon,
+  LayoutGridIcon,
+  FileIcon,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,14 +36,20 @@ import { Button } from "@components/shadcn/ui/button";
 
 import SidebarToggler from "@components/common/SidebarToggler";
 import { BackwardAndForward } from "@components/common/AppTopbar";
+import { usePathname, useSearchParams } from "next/navigation";
 
 function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
   const [workspace, setWorkspace] = useState("West Wong");
   const mockTabs = [...Array(40)];
+  const pathname = usePathname();
+  const searchParamsString = useSearchParams().toString();
+  const fullPath = searchParamsString
+    ? `${pathname}?${searchParamsString}`
+    : pathname;
 
   return (
     <Sidebar className={className}>
-      <SidebarHeader className="pt-safe pb-0">
+      <SidebarHeader className="mt-safe pb-0">
         <SidebarMenu>
           <SidebarMenuItem className="flex justify-between">
             <SidebarToggler />
@@ -85,13 +94,19 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
           <SidebarGroupContent>
             <SidebarMenu className="gap-[1px]">
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/boards">Boards</Link>
+                <SidebarMenuButton asChild isActive={fullPath === "/boards"}>
+                  <Link href="/boards">
+                    <MapIcon />
+                    Boards
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link href="/notes">Notes</Link>
+                <SidebarMenuButton asChild isActive={fullPath === "/notes"}>
+                  <Link href="/notes">
+                    <LayoutGridIcon />
+                    Notes
+                  </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -113,8 +128,14 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
                 };
                 return (
                   <SidebarMenuItem key={tab.id}>
-                    <SidebarMenuButton asChild>
-                      <Link href={`/notes?id=${tab.id + 1}`}>{tab.name}</Link>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={fullPath === `/notes?id=${tab.id + 1}`}
+                    >
+                      <Link href={`/notes?id=${tab.id + 1}`}>
+                        <FileIcon />
+                        {tab.name}
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 );
@@ -123,7 +144,7 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="pb-safe">
+      <SidebarFooter className="mb-safe">
         <SidebarMenu>
           <SidebarMenuItem className="flex justify-between">
             <Button variant="ghost" size="icon">
