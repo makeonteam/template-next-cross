@@ -10,7 +10,7 @@
     "lint": "biome check",
     "format": "biome format --write",
     "format-prettier": "prettier --write .",
-    "depoly": "next build --turbopack"
+    "deploy": "next build --turbopack"
   },
   "dependencies": {
     "@capacitor-community/safe-area": "7.0.0-alpha.1",
