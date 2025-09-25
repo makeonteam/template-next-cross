@@ -4,6 +4,10 @@ English | [简体中文](README.zh-CN.md)
 
 This is a cross-platform application template based on Next.js, Electron, and Capacitor, designed to help developers quickly build applications that support web, desktop, and mobile platforms simultaneously.
 
+## 🔗 Live Demo
+
+Click [here](https://template-next-cross.vercel.app/boards) to experience the web version of the application.
+
 ## ✨ Features
 
 - **Unified Codebase**: Maximize code reuse across web, desktop, and mobile platforms to reduce development costs.
@@ -12,6 +16,7 @@ This is a cross-platform application template based on Next.js, Electron, and Ca
   - **Mobile App**: Uses Capacitor to convert the web app into native mobile applications, supporting iOS and Android.
 - **Modern Frontend**: Adopts popular technology stacks such as React, TypeScript, Tailwind CSS, and Shadcn/ui.
 - **Code Quality**: Integrates Biome for code linting and formatting (Prettier is mainly used for Tailwind class sorting).
+- **Default Configuration**: Comes with next-themes, solving the safe-area problem (low version Android is also in Edge-to-Edge mode).
 
 ## 🛠️ Tech Stack
 
@@ -35,7 +40,7 @@ Please ensure that you have the following tools installed in your development en
 1. Clone the repository:
 
 ```bash
-git clone <your-repository-url>
+git clone git@github.com:makeonteam/template-next-cross.git
 cd makeon-app-next
 ```
 
