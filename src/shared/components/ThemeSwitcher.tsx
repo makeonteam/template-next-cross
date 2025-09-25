@@ -20,7 +20,7 @@ export default function ThemeSwitcher() {
         <>
           <span>{themeActived}</span>
           <select
-            className="bg-transparent border outline-none rounded-2xl"
+            className="rounded-2xl border bg-transparent outline-none"
             aria-label="Select theme"
             value={themeActived}
             onChange={(event) => setTheme(event.target.value)}

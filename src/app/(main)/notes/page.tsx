@@ -9,7 +9,7 @@ function InnerPage() {
   const id = searchParams.get("id");
 
   return (
-    <div className="flex flex-col h-full w-full">
+    <div className="flex h-full w-full flex-col">
       <AppTopbar>
         <span>Notes</span>
       </AppTopbar>
