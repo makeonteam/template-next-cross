@@ -9,6 +9,8 @@ interface ToggleSidebarProps {
 function SidebarToggler({ variant = "normal" }: ToggleSidebarProps) {
   const { open, isMobile, toggleSidebar } = useSidebar();
 
+  // normal to show (put it in sidebar), smart to hide when sidebar is open (put it in main page)
+  // show when mobile view
   if (variant === "normal" || (variant === "smart" && !open) || isMobile) {
     return (
       <Button variant="ghost" size="icon" onClick={() => toggleSidebar()}>

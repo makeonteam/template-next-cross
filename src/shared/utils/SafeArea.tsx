@@ -7,6 +7,7 @@ export function SafeAreaInitializer() {
   const { resolvedTheme } = useTheme();
   const reversedTheme = resolvedTheme === "light" ? "dark" : "light";
 
+  // if theme changes, then status bar changes
   useEffect(() => {
     SafeArea.enable({
       config: {
@@ -19,5 +20,5 @@ export function SafeAreaInitializer() {
     });
   }, [resolvedTheme]);
 
-  return null; // This component doesn't render anything
+  return null; // this component doesn't render anything
 }

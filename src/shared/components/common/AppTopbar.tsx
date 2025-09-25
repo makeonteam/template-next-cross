@@ -25,6 +25,7 @@ function BackwardAndForward({ variant = "normal" }: BackwardAndForwardProps) {
   const { open } = useSidebar();
   const router = useRouter();
 
+  // normal to show (put it in sidebar), smart to hide when sidebar is open (put it in main page)
   if (variant === "normal" || (variant === "smart" && !open)) {
     return (
       <div className="flex gap-[1px]">

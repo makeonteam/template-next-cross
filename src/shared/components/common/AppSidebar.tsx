@@ -1,5 +1,5 @@
 "use client";
-import { useState, Suspense } from "react"; // Import Suspense
+import { useState, Suspense } from "react";
 import {
   ChevronDownIcon,
   EllipsisIcon,
@@ -38,12 +38,11 @@ import { Button } from "@components/shadcn/ui/button";
 import SidebarToggler from "@components/common/SidebarToggler";
 import { BackwardAndForward } from "@components/common/AppTopbar";
 
-// New component to encapsulate the logic that uses useSearchParams
 function AppSidebarContent({}: React.ComponentProps<typeof Sidebar>) {
   const [workspace, setWorkspace] = useState("West Wong");
   const mockTabs = [...Array(40)];
   const pathname = usePathname();
-  const searchParamsString = useSearchParams().toString(); // This is the problematic line
+  const searchParamsString = useSearchParams().toString();
   const fullPath = searchParamsString
     ? `${pathname}?${searchParamsString}`
     : pathname;

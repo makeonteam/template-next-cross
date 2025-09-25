@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 import { AppTopbar } from "@components/common/AppTopbar";
 
-function InnerPage() {
+function PageContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
@@ -23,7 +23,7 @@ function InnerPage() {
 export default function Page() {
   return (
     <Suspense>
-      <InnerPage />
+      <PageContent />
     </Suspense>
   );
 }

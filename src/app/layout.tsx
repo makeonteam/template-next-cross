@@ -16,9 +16,10 @@ const geistMono = Geist_Mono({
 
 // you can change metadata for each page
 export const metadata: Metadata = {
-  title: "MakeOn",
-  description: "Open Cards => Notes, Boards, Snips, Tasks, Chats",
+  title: "Next Cross",
+  description: "Template of Cross-Platform app build with Web tech",
 };
+// this is for safe-area, edge-to-edge layout
 export const viewport: Viewport = {
   viewportFit: "cover",
 };
