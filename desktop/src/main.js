@@ -1,6 +1,6 @@
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { app, BrowserWindow } from "electron";
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
 import electronServe from "electron-serve";
 
 const __filename = fileURLToPath(import.meta.url);

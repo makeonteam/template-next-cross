@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, Suspense } from "react"; // Import Suspense
 import {
   ChevronDownIcon,
   EllipsisIcon,
@@ -10,6 +10,7 @@ import {
   FileIcon,
 } from "lucide-react";
 import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 
 import {
   Sidebar,
@@ -36,19 +37,19 @@ import { Button } from "@components/shadcn/ui/button";
 
 import SidebarToggler from "@components/common/SidebarToggler";
 import { BackwardAndForward } from "@components/common/AppTopbar";
-import { usePathname, useSearchParams } from "next/navigation";
 
-function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
+// New component to encapsulate the logic that uses useSearchParams
+function AppSidebarContent({}: React.ComponentProps<typeof Sidebar>) {
   const [workspace, setWorkspace] = useState("West Wong");
   const mockTabs = [...Array(40)];
   const pathname = usePathname();
-  const searchParamsString = useSearchParams().toString();
+  const searchParamsString = useSearchParams().toString(); // This is the problematic line
   const fullPath = searchParamsString
     ? `${pathname}?${searchParamsString}`
     : pathname;
 
   return (
-    <Sidebar className={className}>
+    <>
       <SidebarHeader className="mt-safe pb-0">
         <SidebarMenu>
           <SidebarMenuItem className="flex justify-between">
@@ -156,6 +157,16 @@ function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>
+    </>
+  );
+}
+
+function AppSidebar({ className }: React.ComponentProps<typeof Sidebar>) {
+  return (
+    <Sidebar className={className}>
+      <Suspense fallback={null}>
+        <AppSidebarContent />
+      </Suspense>
     </Sidebar>
   );
 }
