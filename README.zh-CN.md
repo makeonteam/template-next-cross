@@ -1,4 +1,4 @@
-# Template of Cross-Platform app build with Web tech
+# 基于 Web 技术的跨平台应用模板
 
 [English](README.md) | 简体中文
 
@@ -11,7 +11,7 @@
 ## ✨ 特性
 
 - **统一代码库**: 尽可能复用 Web 代码，减少多平台开发成本。
-  - **Web 应用**: 基于 Next.js 构建（启用了 export 参数）
+  - **网页应用**: 基于 Next.js 构建（启用了 export 参数）
   - **桌面应用**: 使用 Electron 将 Web 应用打包为桌面应用
   - **移动应用**: 利用 Capacitor 将 Web 应用转换为原生移动应用，支持 iOS 和 Android。
 - **现代化前端**: 采用 React, Typescript, Tailwind CSS, Shacn/ui 等流行技术栈。
@@ -23,7 +23,7 @@
 - **前端框架**: [Next.js](https://nextjs.org/) (React + Typescript)，生态繁荣
 - **样式组件**: [Tailwind CSS](https://tailwindcss.com/), [Shadcn/ui](https://ui.shadcn.com/)
 - **跨平台框架**: [Electron](https://www.electronjs.org/)，[Capacitor](https://capacitorjs.com/)
-- **代码工具**: [Biome](https://biomejs.dev/)速度很快
+- **代码工具**: [Biome](https://biomejs.dev/) 速度很快
 - **包管理**: pnpm (根项目)、yarn（desktop 和 mobile 目录）
 
 ## 🚀 准备
@@ -41,7 +41,7 @@
 
 ```bash
 git clone git@github.com:makeonteam/template-next-cross.git
-cd makeon-app-next
+cd template-next-cross
 ```
 
 2. 安装依赖：
@@ -78,6 +78,7 @@ pnpm dev
 你也可以先构建 Web 应用，然后运行 Electron 应用。
 
 ```bash
+pnpm build
 cd desktop
 yarn sync # 这会将构建复制到 desktop/app 目录
 yarn start

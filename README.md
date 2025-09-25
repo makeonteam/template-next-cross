@@ -23,7 +23,7 @@ Click [here](https://template-next-cross.vercel.app/boards) to experience the we
 - **Frontend Framework**: [Next.js](https://nextjs.org/) (React + TypeScript), with a thriving ecosystem.
 - **Styling Components**: [Tailwind CSS](https://tailwindcss.com/), [Shadcn/ui](https://ui.shadcn.com/)
 - **Cross-Platform Frameworks**: [Electron](https://www.electronjs.org/), [Capacitor](https://capacitorjs.com/)
-- **Code Tools**: [Biome](https://biomejs.dev/) (fast)
+- **Code Tools**: [Biome](https://biomejs.dev/) It's fast
 - **Package Management**: pnpm (root project), yarn (desktop and mobile directories)
 
 ## 🚀 Getting Started
@@ -41,7 +41,7 @@ Please ensure that you have the following tools installed in your development en
 
 ```bash
 git clone git@github.com:makeonteam/template-next-cross.git
-cd makeon-app-next
+cd template-next-cross
 ```
 
 2. Install dependencies:
@@ -78,6 +78,7 @@ pnpm dev
 Alternatively, you can build the web app first and then run the Electron app.
 
 ```bash
+pnpm build
 cd desktop
 yarn sync # This will copy the build to the desktop/app directory
 yarn start
