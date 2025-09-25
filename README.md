@@ -54,7 +54,7 @@ cd ../mobile
 yarn install
 ```
 
-## Running the Project
+## 🔧 Running to develop
 
 ### 1. Web App
 
