@@ -4,6 +4,10 @@ English | [简体中文](README.zh-CN.md)
 
 This is a cross-platform application template based on Next.js, Electron, and Capacitor, designed to help developers quickly build applications that support web, desktop, and mobile platforms simultaneously.
 
+![template-next-cross-mobile.png](/res/template-next-cross-mobile.png)
+
+![template-next-cross-desktop.png](/res/template-next-cross-desktop.png)
+
 ## 🔗 Live Demo
 
 Click [here](https://template-next-cross.vercel.app/boards) to experience the web version of the application.

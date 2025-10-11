@@ -4,6 +4,10 @@
 
 这是一个基于 Next.js、Electron、Capacitor 的跨平台应用模板，旨在帮助开发者快速构建同时支持网页、桌面和移动平台的应用。
 
+![template-next-cross-mobile.png](/res/template-next-cross-mobile.png)
+
+![template-next-cross-desktop.png](/res/template-next-cross-desktop.png)
+
 ## 🔗 在线体验
 
 点击 [这里](https://template-next-cross.vercel.app/boards) 体验 web 版
