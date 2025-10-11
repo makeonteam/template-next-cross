@@ -11,7 +11,7 @@ export default function MainLayout({
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="pt-safe pb-safe min-h-full w-full">{children}</main>
+      <main className="mt-safe mt-safe min-h-full w-full">{children}</main>
     </SidebarProvider>
   );
 }
