@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 };
 
 // root layout for the entire app
-// children is the content of each page
+// children is the content
 export default function RootLayout({
   children,
 }: Readonly<{
