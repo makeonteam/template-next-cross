@@ -1,8 +1,8 @@
 import "./layout.css";
 
 import type { Metadata, Viewport } from "next";
-import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "@hooks/common/ThemeProvider";
 import { SafeAreaInitializer } from "@utils/SafeArea";
 
 const geistSans = Geist({
