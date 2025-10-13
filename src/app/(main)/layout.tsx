@@ -1,8 +1,8 @@
 import { SidebarProvider } from "@components/shadcn/ui/sidebar";
 import AppSidebar from "@components/common/AppSidebar";
 
-// the layout for pages in (main)
-// children is the content of each page
+// the layout for pages in (main) group
+// children is the content
 export default function MainLayout({
   children,
 }: {
