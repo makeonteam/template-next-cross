@@ -43,9 +43,7 @@ function AppSidebarContent({}: React.ComponentProps<typeof Sidebar>) {
   const mockTabs = [...Array(40)];
   const pathname = usePathname();
   const searchParamsString = useSearchParams().toString();
-  const fullPath = searchParamsString
-    ? `${pathname}?${searchParamsString}`
-    : pathname;
+  const fullPath = searchParamsString ? `${pathname}?${searchParamsString}` : pathname;
 
   return (
     <>
@@ -66,16 +64,9 @@ function AppSidebarContent({}: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-(--radix-popper-anchor-width)">
-                <DropdownMenuRadioGroup
-                  value={workspace}
-                  onValueChange={setWorkspace}
-                >
-                  <DropdownMenuRadioItem value="West Wong">
-                    West Wong
-                  </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem value="Galaxy Insect">
-                    Galaxy Insect
-                  </DropdownMenuRadioItem>
+                <DropdownMenuRadioGroup value={workspace} onValueChange={setWorkspace}>
+                  <DropdownMenuRadioItem value="West Wong">West Wong</DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem value="Galaxy Insect">Galaxy Insect</DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -128,10 +119,7 @@ function AppSidebarContent({}: React.ComponentProps<typeof Sidebar>) {
                 };
                 return (
                   <SidebarMenuItem key={tab.id}>
-                    <SidebarMenuButton
-                      asChild
-                      isActive={fullPath === `/notes?id=${tab.id + 1}`}
-                    >
+                    <SidebarMenuButton asChild isActive={fullPath === `/notes?id=${tab.id + 1}`}>
                       <Link href={`/notes?id=${tab.id + 1}`}>
                         <FileIcon />
                         {tab.name}

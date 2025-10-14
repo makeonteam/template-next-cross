@@ -3,11 +3,7 @@ import AppSidebar from "@components/common/AppSidebar";
 
 // the layout for pages in (main) group
 // children is the content
-export default function MainLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />
