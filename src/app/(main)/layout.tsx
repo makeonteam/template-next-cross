@@ -7,7 +7,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="mt-safe mt-safe min-h-full w-full">{children}</main>
+      <main className="mt-safe mb-safe min-h-full w-full">{children}</main>
     </SidebarProvider>
   );
 }

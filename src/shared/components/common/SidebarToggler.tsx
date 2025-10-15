@@ -13,7 +13,7 @@ function SidebarToggler({ variant = "normal" }: ToggleSidebarProps) {
   // show when mobile view
   if (variant === "normal" || (variant === "smart" && !open) || isMobile) {
     return (
-      <Button variant="ghost" size="icon" onClick={() => toggleSidebar()}>
+      <Button variant="ghost" size="icon-sm" onClick={() => toggleSidebar()}>
         <PanelLeftIcon className="size-4.5" />
       </Button>
     );

@@ -38,7 +38,7 @@ import { Button } from "@components/shadcn/ui/button";
 import SidebarToggler from "@components/common/SidebarToggler";
 import { BackwardAndForward } from "@components/common/AppTopbar";
 
-function AppSidebarContent({}: React.ComponentProps<typeof Sidebar>) {
+function AppSidebarContent(_: React.ComponentProps<typeof Sidebar>) {
   const [workspace, setWorkspace] = useState("West Wong");
   const mockTabs = [...Array(40)];
   const pathname = usePathname();
@@ -135,10 +135,10 @@ function AppSidebarContent({}: React.ComponentProps<typeof Sidebar>) {
       <SidebarFooter className="mb-safe">
         <SidebarMenu>
           <SidebarMenuItem className="flex justify-between">
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon-sm">
               <SettingsIcon className="size-4.5" />
             </Button>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon-sm">
               <ImportIcon className="size-4.5" />
             </Button>
           </SidebarMenuItem>

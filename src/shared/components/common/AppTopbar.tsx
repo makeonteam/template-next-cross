@@ -29,10 +29,10 @@ function BackwardAndForward({ variant = "normal" }: BackwardAndForwardProps) {
   if (variant === "normal" || (variant === "smart" && !open)) {
     return (
       <div className="flex gap-[1px]">
-        <Button variant="ghost" size="icon" onClick={() => router.back()}>
+        <Button variant="ghost" size="icon-sm" onClick={() => router.back()}>
           <ArrowLeftIcon className="size-4.5" />
         </Button>
-        <Button variant="ghost" size="icon" onClick={() => router.forward()}>
+        <Button variant="ghost" size="icon-sm" onClick={() => router.forward()}>
           <ArrowRightIcon className="size-4.5" />
         </Button>
       </div>
