@@ -13,8 +13,8 @@ function PageContent() {
       <AppTopbar>
         <span>Notes</span>
       </AppTopbar>
-      <div className="h-full w-full">
-        <h1 className="px-4 py-1">url-path is /note?id={id ? id : "null"}</h1>
+      <div className="flex h-full w-full flex-col gap-2 p-2">
+        <h1 className="text-xl font-bold">url-path is /note?id={id ? id : "null"}</h1>
       </div>
     </div>
   );
