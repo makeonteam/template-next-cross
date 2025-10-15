@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 import { AppTopbar } from "@components/common/AppTopbar";
 
-function PageContent() {
+function PageContent(): React.ReactElement {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
 
@@ -20,7 +20,7 @@ function PageContent() {
   );
 }
 
-export default function Page() {
+export default function Page(): React.ReactElement {
   return (
     <Suspense>
       <PageContent />
