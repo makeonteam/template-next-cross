@@ -105,12 +105,14 @@ function AppSidebarContent(_: React.ComponentProps<typeof Sidebar>) {
         </SidebarGroup>
       </SidebarHeader>
       <SidebarContent className="gap-0">
-        <SidebarGroup className="h-full">
-          <SidebarGroupLabel>Tabs</SidebarGroupLabel>
-          <SidebarGroupAction>
-            <EllipsisIcon /> <span className="sr-only">Setting</span>
-          </SidebarGroupAction>
-          <SidebarGroupContent>
+        <SidebarGroup className="h-full p-0">
+          <div className="sticky px-2 pt-2">
+            <SidebarGroupLabel>Tabs</SidebarGroupLabel>
+            <SidebarGroupAction className="top-3.5 right-3">
+              <EllipsisIcon /> <span className="sr-only">Setting</span>
+            </SidebarGroupAction>
+          </div>
+          <SidebarGroupContent className="overflow-y-auto px-2 py-0">
             <SidebarMenu className="gap-[1px]">
               {mockTabs.map((_, index) => {
                 const tab = {
