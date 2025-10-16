@@ -18,7 +18,7 @@ function PageContent(): React.ReactElement {
         <span>Boards</span>
       </AppTopbar>
       <div className="flex h-full w-full flex-col gap-2 p-2">
-        <h1 className="text-xl font-bold">url-path is /boards?id={id ? id : "null"}</h1>
+        <h1 className="text-xl font-bold">Boards{id ? `?id=${id}` : null}</h1>
       </div>
     </div>
   );

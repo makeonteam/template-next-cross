@@ -6,7 +6,6 @@ import { SafeAreaInitializer } from "@utils/init/SafeArea";
 
 // you can change metadata for each page
 export const metadata: Metadata = {
-  title: "Next Cross",
   description: "Template of Cross-Platform app build with Web tech",
 };
 // this is for safe-area, edge-to-edge layout

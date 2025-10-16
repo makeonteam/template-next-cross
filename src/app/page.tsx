@@ -13,7 +13,7 @@ const ThemeSwitcher = dynamic(
 // the root-page for children in layout
 export default function Page(): React.ReactElement {
   useEffect(() => {
-    document.title = "Boards";
+    document.title = "Next Cross";
   }, []);
 
   return (
