@@ -1,4 +1,4 @@
-package app.makeon.mobile;
+package app.makeon.next_cross_mobile;
 
 import com.getcapacitor.BridgeActivity;
 

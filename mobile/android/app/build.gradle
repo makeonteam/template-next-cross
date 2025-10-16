@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    namespace "app.makeon.mobile"
+    namespace "app.makeon.next_cross_mobile"
     compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "app.makeon.mobile"
+        applicationId "app.makeon.next_cross_mobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -1,5 +1,5 @@
 {
-  "name": "makeon-desktop",
+  "name": "next-cross-desktop",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -14,7 +14,7 @@
     "electron-serve": "^3.0.0"
   },
   "devDependencies": {
-    "electron": "^38.1.0",
+    "electron": "^38.3.0",
     "electron-builder": "^26.0.12"
   }
 }

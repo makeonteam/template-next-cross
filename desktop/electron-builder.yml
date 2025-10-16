@@ -1,4 +1,4 @@
-appId: app.makeon.desktop
+appId: app.makeon.next-cross-desktop
 directories:
   output: out
 files:

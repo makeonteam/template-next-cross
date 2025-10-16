@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: "app.makeon.mobile",
-  appName: "makeon-mobile",
+  appId: "app.makeon.next_cross_mobile",
+  appName: "Next Cross",
   webDir: "../out",
   plugins: {
     StatusBar: {
