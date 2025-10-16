@@ -1,5 +1,5 @@
 "use client";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { AppTopbar } from "@components/common/AppTopbar";
@@ -7,6 +7,10 @@ import { AppTopbar } from "@components/common/AppTopbar";
 function PageContent(): React.ReactElement {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
+
+  useEffect(() => {
+    document.title = "Notes";
+  }, []);
 
   return (
     <div className="flex h-full w-full flex-col">
