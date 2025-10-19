@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -7,11 +8,9 @@ import SidebarToggler from "@components/common/SidebarToggler";
 
 function AppTopbar({ children, ...props }: React.ComponentProps<"div">) {
   return (
-    <div className="flex h-12 w-full items-center select-none" {...props}>
-      <div className="flex items-center gap-2 p-2">
-        <SidebarToggler variant="smart" />
-        <BackwardAndForward variant="smart" />
-      </div>
+    <div className="flex h-12 w-full shrink-0 items-center gap-2 px-2 select-none" {...props}>
+      <SidebarToggler variant="smart" />
+      <BackwardAndForward variant="smart" />
       {children}
     </div>
   );
@@ -22,6 +21,7 @@ interface BackwardAndForwardProps {
 }
 
 function BackwardAndForward({ variant = "normal", ...props }: React.ComponentProps<"div"> & BackwardAndForwardProps) {
+  const tMain = useTranslations();
   const { open } = useSidebar();
   const router = useRouter();
 
@@ -30,10 +30,10 @@ function BackwardAndForward({ variant = "normal", ...props }: React.ComponentPro
     return (
       <div className="flex gap-[1px]" {...props}>
         <Button variant="ghost" size="icon-sm" onClick={() => router.back()}>
-          <ArrowLeftIcon className="size-4.5" />
+          <ArrowLeftIcon className="size-4.5" /> <span className="sr-only">{tMain("common.action.backward")}</span>
         </Button>
         <Button variant="ghost" size="icon-sm" onClick={() => router.forward()}>
-          <ArrowRightIcon className="size-4.5" />
+          <ArrowRightIcon className="size-4.5" /> <span className="sr-only">{tMain("common.action.forward")}</span>
         </Button>
       </div>
     );

@@ -2,6 +2,7 @@ import "./layout.css";
 
 import type { Metadata, Viewport } from "next";
 import { ThemeProvider } from "@hooks/common/ThemeProvider";
+import { LanguageProvider } from "@hooks/common/LanguageProvider";
 import { SafeAreaInitializer } from "@utils/init/SafeArea";
 
 // you can change metadata for each page
@@ -26,7 +27,7 @@ export default function RootLayout({
       <body className="min-h-dvh w-dvw overflow-hidden antialiased">
         <ThemeProvider>
           <SafeAreaInitializer />
-          {children}
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

@@ -1,0 +1,28 @@
+{
+  "common": {
+    "sidebar": {
+      "apps": "Apps",
+      "boards": "Boards",
+      "notes": "Notes",
+      "tabs": "Tabs"
+    },
+    "action": {
+      "toggle-sidebar": "Toggle sidebar",
+      "backward": "Backward",
+      "forward": "Forward",
+      "search": "Search",
+      "settings": "Settings",
+      "import": "Import"
+    },
+    "settings": {
+      "title": "Settings",
+      "theme": "Theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark",
+      "toggle-language": "Toggle language",
+      "signout": "Signout",
+      "close": "Close"
+    }
+  }
+}

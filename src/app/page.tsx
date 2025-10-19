@@ -1,14 +1,9 @@
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 
 import { Button } from "@components/shadcn/ui/button";
-// import ThemeSwitcher from "@components/ThemeSwitcher";
-const ThemeSwitcher = dynamic(
-  () => import("@components/common/ThemeSwitcher"),
-  { ssr: false }, // no ssr
-);
+import ThemeSwitcher from "@components/common/ThemeSwitcher";
 
 // the root-page for children in layout
 export default function Page(): React.ReactElement {
