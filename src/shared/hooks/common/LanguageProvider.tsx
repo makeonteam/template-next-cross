@@ -1,6 +1,8 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { NextIntlClientProvider } from "next-intl";
+import { convertDetectedLanguage, LANGUAGE_KEY } from "@utils/init/i18n";
+import { FALLBACK_LANGUAGE, NAMESPACES } from "@utils/init/i18n";
 
 interface LanguageContextType {
   language: string;
@@ -16,19 +18,6 @@ function useLanguage() {
   }
   return context;
 }
-
-const FALLBACK_LANGUAGE = "en";
-export const LANGUAGE_KEY = "language";
-export const convertDetectedLanguage = (lang: string) => {
-  const LANGUAGE_MAP: Record<string, string> = {
-    "zh-HK": "zh-Hant",
-    "zh-TW": "zh-Hant",
-  };
-  // apply map first
-  if (LANGUAGE_MAP[lang]) return LANGUAGE_MAP[lang];
-  // simplify language code: en-AU -> en
-  return lang.split("-")[0];
-};
 
 interface LanguageProviderProps {
   children: React.ReactNode;
@@ -56,8 +45,6 @@ function LanguageProvider({ children, languageKey = LANGUAGE_KEY }: LanguageProv
   const setLanguage = (lang: string) => {
     setLanguageState(lang);
   };
-
-  const NAMESPACES = ["main", "test"];
 
   useEffect(() => {
     const loadTranslations = async () => {

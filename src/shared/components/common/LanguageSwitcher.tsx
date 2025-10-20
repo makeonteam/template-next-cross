@@ -8,7 +8,8 @@ import {
   DropdownMenuTrigger,
 } from "@components/shadcn/ui/dropdown-menu";
 import { Button } from "@components/shadcn/ui/button";
-import { useLanguage, convertDetectedLanguage, LANGUAGE_KEY } from "@hooks/common/LanguageProvider";
+import { useLanguage } from "@hooks/common/LanguageProvider";
+import { convertDetectedLanguage, LANGUAGE_KEY } from "@utils/init/i18n";
 
 const LANGUAGES = [
   { code: "system", label: "System" },
