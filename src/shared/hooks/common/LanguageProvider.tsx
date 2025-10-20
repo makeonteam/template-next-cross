@@ -2,62 +2,92 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { NextIntlClientProvider } from "next-intl";
 
-const i18nConfig = {
-  fallbackLocale: "en",
-};
-
 interface LanguageContextType {
-  locale: string;
-  setLocale: (locale: string) => void;
+  language: string;
+  setLanguage: (language: string) => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-function useLocale() {
+function useLanguage() {
   const context = useContext(LanguageContext);
   if (context === undefined) {
-    throw new Error("useLocale must be used within a LanguageProvider");
+    throw new Error("useLanguage must be used within a LanguageProvider");
   }
   return context;
 }
 
+export const LANGUAGE_KEY = "language";
+const FALLBACK_LANGUAGE = "en";
+
 interface LanguageProviderProps {
   children: React.ReactNode;
-  localeKey?: string;
+  languageKey?: string;
 }
 
-function LanguageProvider({ children, localeKey = "locale" }: LanguageProviderProps) {
-  const [locale, setLocaleState] = useState(() => {
+function LanguageProvider({ children, languageKey = LANGUAGE_KEY }: LanguageProviderProps) {
+  const [language, setLanguageState] = useState(() => {
     if (typeof window !== "undefined") {
-      const storedLocale = localStorage.getItem(localeKey) || i18nConfig.fallbackLocale;
-      return storedLocale;
+      const storedLang = localStorage.getItem(languageKey);
+      if (storedLang && storedLang !== "system") {
+        return storedLang;
+      }
+
+      const navigatorLanguage = navigator.language;
+      if (navigatorLanguage) {
+        const convertDetectedLanguage = (lang: string) => {
+          const LANGUAGE_MAP: Record<string, string> = {
+            "zh-HK": "zh-Hant",
+            "zh-TW": "zh-Hant",
+          };
+          if (LANGUAGE_MAP[lang]) return LANGUAGE_MAP[lang];
+          return lang.split("-")[0];
+        };
+
+        return convertDetectedLanguage(navigatorLanguage);
+      }
+      return FALLBACK_LANGUAGE;
     }
-    return i18nConfig.fallbackLocale;
+    return FALLBACK_LANGUAGE;
   });
   const [messages, setMessages] = useState();
 
-  const setLocale = (newLocale: string) => {
-    setLocaleState(newLocale);
+  const setLanguage = (lang: string) => {
+    setLanguageState(lang);
     if (typeof window !== "undefined") {
-      localStorage.setItem(localeKey, newLocale);
+      localStorage.setItem(languageKey, lang);
     }
   };
 
+  const NAMESPACES = ["main", "test"];
+
   useEffect(() => {
-    // loading translations
-    import(`@shared/constants/locales/${locale}/main.json`)
-      .then((mod) => setMessages(mod.default))
-      .catch(() =>
-        import(`@shared/constants/locales/${i18nConfig.fallbackLocale}/main.json`).then((mod) =>
-          setMessages(mod.default),
-        ),
+    const loadTranslations = async () => {
+      // load all namespaces for the current locale (with fallback)
+      const translations = await Promise.all(
+        NAMESPACES.map(async (ns) => {
+          try {
+            // try to load the namespace for the current locale
+            const mod = await import(`@shared/constants/locales/${language}/${ns}.json`);
+            return { [ns]: mod.default };
+          } catch {
+            // fallback to the default locale if loading fails
+            const mod = await import(`@shared/constants/locales/${FALLBACK_LANGUAGE}/${ns}.json`);
+            return { [ns]: mod.default };
+          }
+        }),
       );
-  }, [locale]);
+      // merge all namespace translations into a single object
+      setMessages(Object.assign({}, ...translations));
+    };
+
+    loadTranslations();
+  }, [language]);
 
   return (
-    <LanguageContext.Provider value={{ locale, setLocale }}>
+    <LanguageContext.Provider value={{ language, setLanguage }}>
       {messages ? (
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={language} messages={messages}>
           {children}
         </NextIntlClientProvider>
       ) : null}
@@ -65,4 +95,4 @@ function LanguageProvider({ children, localeKey = "locale" }: LanguageProviderPr
   );
 }
 
-export { LanguageProvider, useLocale };
+export { LanguageProvider, useLanguage };

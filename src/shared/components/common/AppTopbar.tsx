@@ -21,7 +21,7 @@ interface BackwardAndForwardProps {
 }
 
 function BackwardAndForward({ variant = "normal", ...props }: React.ComponentProps<"div"> & BackwardAndForwardProps) {
-  const tMain = useTranslations();
+  const tMain = useTranslations("main");
   const { open } = useSidebar();
   const router = useRouter();
 

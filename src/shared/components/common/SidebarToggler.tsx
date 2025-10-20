@@ -9,7 +9,7 @@ interface ToggleSidebarProps {
 }
 
 function SidebarToggler({ variant = "normal" }: ToggleSidebarProps) {
-  const tMain = useTranslations();
+  const tMain = useTranslations("main");
   const { open, isMobile, toggleSidebar } = useSidebar();
 
   // normal to show (put it in sidebar), smart to hide when sidebar is open (put it in main page)

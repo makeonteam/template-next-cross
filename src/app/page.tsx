@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Button } from "@components/shadcn/ui/button";
 import ThemeSwitcher from "@components/common/ThemeSwitcher";
+import LanguageSwitcher from "@components/common/LanguageSwitcher";
 
 // the root-page for children in layout
 export default function Page(): React.ReactElement {
@@ -23,6 +24,7 @@ export default function Page(): React.ReactElement {
           <Link href="/home">Goto Home page {"=>"} /home</Link>
         </Button>
         <ThemeSwitcher />
+        <LanguageSwitcher />
       </div>
     </div>
   );

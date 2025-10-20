@@ -8,36 +8,37 @@ import {
   DropdownMenuTrigger,
 } from "@components/shadcn/ui/dropdown-menu";
 import { Button } from "@components/shadcn/ui/button";
-import { useLocale } from "@/shared/hooks/common/LanguageProvider";
+import { useLanguage } from "@hooks/common/LanguageProvider";
 
-const languages = [
+const LANGUAGES = [
   { code: "en", label: "English" },
-  { code: "zh-CN", label: "中文" },
+  { code: "zh", label: "中文" },
+  { code: "zh-Hant", label: "繁體中文" },
   // add more languages here
 ];
 
 export default function LanguageSwitcher() {
-  const tMain = useTranslations();
-  const { locale, setLocale } = useLocale();
+  const tMain = useTranslations("main");
+  const { language, setLanguage } = useLanguage();
 
   const handleChangeLanguage = (lang: string) => {
-    setLocale(lang);
+    setLanguage(lang);
   };
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon-sm">
-          <GlobeIcon className="size-[18px]" />
+          <GlobeIcon className="size-[17px]" />
           <span className="sr-only">{tMain("common.settings.toggle-language")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="flex flex-col gap-[1px]">
-        {languages.map((lang) => (
+        {LANGUAGES.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
             onClick={() => handleChangeLanguage(lang.code)}
-            className={lang.code === locale ? "bg-accent" : ""}
+            className={lang.code === language ? "bg-accent" : ""}
           >
             {lang.label}
           </DropdownMenuItem>

@@ -35,7 +35,7 @@ import LanguageSwitcher from "@components/common/LanguageSwitcher";
 import { sidebarAppsConfigs } from "@shared/constants/configs/main";
 
 function AppSidebarContent(_: React.ComponentProps<typeof Sidebar>) {
-  const tMain = useTranslations();
+  const tMain = useTranslations("main");
   const sidebarApps = sidebarAppsConfigs();
   const [workspace, setWorkspace] = useState("West Wong");
   const mockTabs = [...Array(40)];

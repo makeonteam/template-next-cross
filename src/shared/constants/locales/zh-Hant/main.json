@@ -1,0 +1,28 @@
+{
+  "common": {
+    "sidebar": {
+      "apps": "應用",
+      "boards": "白板",
+      "notes": "筆記",
+      "tabs": "工作區"
+    },
+    "action": {
+      "toggle-sidebar": "切換侧边栏",
+      "backward": "返回",
+      "forward": "前進",
+      "search": "搜索",
+      "settings": "設置",
+      "import": "導入"
+    },
+    "settings": {
+      "title": "設置",
+      "theme": "主題",
+      "system": "自動",
+      "light": "亮色",
+      "dark": "暗色",
+      "toggle-language": "切換語言",
+      "signout": "退出",
+      "close": "關閉"
+    }
+  }
+}

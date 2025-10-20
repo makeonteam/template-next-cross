@@ -1,0 +1,6 @@
+{
+  "welcome": "歡迎來到 Cross",
+  "description": "使用 Web 技術構建跨平台應用",
+  "goto_main_app": "前往主應用 => /boards",
+  "goto_home_page": "前往首頁 => /home"
+}

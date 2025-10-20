@@ -3,7 +3,7 @@ import { Map as BoardsIcon, LayoutGridIcon as NotesIcon } from "lucide-react";
 
 // sidebar menus
 function sidebarAppsConfigs() {
-  const tMain = useTranslations();
+  const tMain = useTranslations("main");
 
   const tMenu = (menu: string) => {
     return tMain(`common.sidebar.${menu}`);
