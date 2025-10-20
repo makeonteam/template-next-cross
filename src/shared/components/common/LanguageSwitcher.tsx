@@ -8,9 +8,10 @@ import {
   DropdownMenuTrigger,
 } from "@components/shadcn/ui/dropdown-menu";
 import { Button } from "@components/shadcn/ui/button";
-import { useLanguage } from "@hooks/common/LanguageProvider";
+import { useLanguage, convertDetectedLanguage, LANGUAGE_KEY } from "@hooks/common/LanguageProvider";
 
 const LANGUAGES = [
+  { code: "system", label: "System" },
   { code: "en", label: "English" },
   { code: "zh", label: "中文" },
   { code: "zh-Hant", label: "繁體中文" },
@@ -19,10 +20,16 @@ const LANGUAGES = [
 
 export default function LanguageSwitcher() {
   const tMain = useTranslations("main");
-  const { language, setLanguage } = useLanguage();
+  const { setLanguage } = useLanguage();
+  const storedLang = localStorage.getItem(LANGUAGE_KEY) || "system";
 
   const handleChangeLanguage = (lang: string) => {
-    setLanguage(lang);
+    if (lang === "system") {
+      setLanguage(convertDetectedLanguage(navigator.language));
+    } else {
+      setLanguage(lang);
+    }
+    localStorage.setItem(LANGUAGE_KEY, lang);
   };
 
   return (
@@ -38,7 +45,7 @@ export default function LanguageSwitcher() {
           <DropdownMenuItem
             key={lang.code}
             onClick={() => handleChangeLanguage(lang.code)}
-            className={lang.code === language ? "bg-accent" : ""}
+            className={lang.code === storedLang ? "bg-accent" : ""}
           >
             {lang.label}
           </DropdownMenuItem>

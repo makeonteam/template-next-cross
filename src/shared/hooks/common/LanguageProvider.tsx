@@ -17,8 +17,18 @@ function useLanguage() {
   return context;
 }
 
-export const LANGUAGE_KEY = "language";
 const FALLBACK_LANGUAGE = "en";
+export const LANGUAGE_KEY = "language";
+export const convertDetectedLanguage = (lang: string) => {
+  const LANGUAGE_MAP: Record<string, string> = {
+    "zh-HK": "zh-Hant",
+    "zh-TW": "zh-Hant",
+  };
+  // apply map first
+  if (LANGUAGE_MAP[lang]) return LANGUAGE_MAP[lang];
+  // simplify language code: en-AU -> en
+  return lang.split("-")[0];
+};
 
 interface LanguageProviderProps {
   children: React.ReactNode;
@@ -35,15 +45,6 @@ function LanguageProvider({ children, languageKey = LANGUAGE_KEY }: LanguageProv
 
       const navigatorLanguage = navigator.language;
       if (navigatorLanguage) {
-        const convertDetectedLanguage = (lang: string) => {
-          const LANGUAGE_MAP: Record<string, string> = {
-            "zh-HK": "zh-Hant",
-            "zh-TW": "zh-Hant",
-          };
-          if (LANGUAGE_MAP[lang]) return LANGUAGE_MAP[lang];
-          return lang.split("-")[0];
-        };
-
         return convertDetectedLanguage(navigatorLanguage);
       }
       return FALLBACK_LANGUAGE;
@@ -54,9 +55,6 @@ function LanguageProvider({ children, languageKey = LANGUAGE_KEY }: LanguageProv
 
   const setLanguage = (lang: string) => {
     setLanguageState(lang);
-    if (typeof window !== "undefined") {
-      localStorage.setItem(languageKey, lang);
-    }
   };
 
   const NAMESPACES = ["main", "test"];
@@ -68,11 +66,11 @@ function LanguageProvider({ children, languageKey = LANGUAGE_KEY }: LanguageProv
         NAMESPACES.map(async (ns) => {
           try {
             // try to load the namespace for the current locale
-            const mod = await import(`@shared/constants/locales/${language}/${ns}.json`);
+            const mod = await import(`../../constants/locales/${language}/${ns}.json`);
             return { [ns]: mod.default };
           } catch {
             // fallback to the default locale if loading fails
-            const mod = await import(`@shared/constants/locales/${FALLBACK_LANGUAGE}/${ns}.json`);
+            const mod = await import(`../../constants/locales/${FALLBACK_LANGUAGE}/${ns}.json`);
             return { [ns]: mod.default };
           }
         }),
