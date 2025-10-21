@@ -25,7 +25,7 @@ interface LanguageProviderProps {
 }
 
 function LanguageProvider({ children, languageKey = LANGUAGE_KEY }: LanguageProviderProps) {
-  const [language, setLanguageState] = useState(() => {
+  const [language, setLanguage] = useState(() => {
     if (typeof window !== "undefined") {
       const storedLang = localStorage.getItem(languageKey);
       if (storedLang && storedLang !== "system") {
@@ -41,10 +41,6 @@ function LanguageProvider({ children, languageKey = LANGUAGE_KEY }: LanguageProv
     return FALLBACK_LANGUAGE;
   });
   const [messages, setMessages] = useState();
-
-  const setLanguage = (lang: string) => {
-    setLanguageState(lang);
-  };
 
   useEffect(() => {
     const loadTranslations = async () => {

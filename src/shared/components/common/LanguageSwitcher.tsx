@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { GlobeIcon } from "lucide-react";
 
@@ -11,18 +12,19 @@ import { Button } from "@components/shadcn/ui/button";
 import { useLanguage } from "@hooks/common/LanguageProvider";
 import { convertDetectedLanguage, LANGUAGE_KEY } from "@utils/init/i18n";
 
-const LANGUAGES = [
-  { code: "system", label: "System" },
-  { code: "en", label: "English" },
-  { code: "zh", label: "中文" },
-  { code: "zh-Hant", label: "繁體中文" },
-  // add more languages here
-];
-
 export default function LanguageSwitcher() {
   const tMain = useTranslations("main");
   const { setLanguage } = useLanguage();
   const storedLang = localStorage.getItem(LANGUAGE_KEY) || "system";
+  const [languageState, setLanguageState] = useState(storedLang);
+
+  const LANGUAGES = [
+    { code: "system", label: tMain("common.settings.language.system") },
+    { code: "en", label: "English" },
+    { code: "zh", label: "中文" },
+    { code: "zh-Hant", label: "繁體中文" },
+    // add more languages here
+  ];
 
   const handleChangeLanguage = (lang: string) => {
     if (lang === "system") {
@@ -30,6 +32,7 @@ export default function LanguageSwitcher() {
     } else {
       setLanguage(lang);
     }
+    setLanguageState(lang);
     localStorage.setItem(LANGUAGE_KEY, lang);
   };
 
@@ -38,7 +41,7 @@ export default function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon-sm">
           <GlobeIcon className="size-[17px]" />
-          <span className="sr-only">{tMain("common.settings.toggle-language")}</span>
+          <span className="sr-only">{tMain("common.settings.language.title")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="start" className="flex flex-col gap-[1px]">
@@ -46,7 +49,7 @@ export default function LanguageSwitcher() {
           <DropdownMenuItem
             key={lang.code}
             onClick={() => handleChangeLanguage(lang.code)}
-            className={lang.code === storedLang ? "bg-accent" : ""}
+            className={lang.code === languageState ? "bg-accent" : ""}
           >
             {lang.label}
           </DropdownMenuItem>

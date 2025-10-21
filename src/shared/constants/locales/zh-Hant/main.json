@@ -7,21 +7,26 @@
       "tabs": "工作區"
     },
     "action": {
-      "toggle-sidebar": "切換侧边栏",
+      "toggle-sidebar": "切換側邊欄",
       "backward": "返回",
       "forward": "前進",
-      "search": "搜索",
-      "settings": "設置",
+      "search": "搜尋",
+      "settings": "設定",
       "import": "導入"
     },
     "settings": {
-      "title": "設置",
-      "theme": "主題",
-      "system": "自動",
-      "light": "亮色",
-      "dark": "暗色",
-      "toggle-language": "切換語言",
-      "signout": "退出",
+      "title": "設定",
+      "theme": {
+        "title": "主題",
+        "system": "自動",
+        "light": "亮色",
+        "dark": "暗色"
+      },
+      "language": {
+        "title": "語言",
+        "system": "自動"
+      },
+      "signout": "登出",
       "close": "關閉"
     }
   }

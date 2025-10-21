@@ -24,7 +24,7 @@ function ThemeSwitcher(): React.ReactElement {
 
   return (
     <div className="flex flex-1 flex-col gap-2 p-4">
-      <p className="text-sm font-medium">{tMain("common.settings.theme")}</p>
+      <p className="text-sm font-medium">{tMain("common.settings.theme.title")}</p>
       <div className="flex gap-2 text-sm">
         {["system", "light", "dark"].map((value) => (
           <label key={value} className="flex items-center gap-2">
@@ -36,7 +36,7 @@ function ThemeSwitcher(): React.ReactElement {
               onChange={() => handleChangeTheme(value as Theme)}
               className="text-blue-600 focus:ring-blue-500"
             />
-            <span className="capitalize">{tMain(`common.settings.${value}`)}</span>
+            <span className="capitalize">{tMain(`common.settings.theme.${value}`)}</span>
           </label>
         ))}
       </div>

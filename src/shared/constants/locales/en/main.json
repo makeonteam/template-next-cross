@@ -16,11 +16,16 @@
     },
     "settings": {
       "title": "Settings",
-      "theme": "Theme",
-      "system": "System",
-      "light": "Light",
-      "dark": "Dark",
-      "toggle-language": "Toggle language",
+      "theme": {
+        "title": "Theme",
+        "system": "System",
+        "light": "Light",
+        "dark": "Dark"
+      },
+      "language": {
+        "title": "Language",
+        "system": "Auto"
+      },
       "signout": "Signout",
       "close": "Close"
     }
