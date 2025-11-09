@@ -878,10 +878,10 @@ electron-serve@^3.0.0:
   resolved "https://registry.yarnpkg.com/electron-serve/-/electron-serve-3.0.0.tgz#32b8655823f3740ef05be74f1346b2a2cf273967"
   integrity sha512-lRN7xhNx8mtuFcXWqJhqVYsk0YsHvDqIIJd+NM7h+s5UBSBmwTUCozbGLqEuT4nSAigmbVVeuL3vo42RmwzlzA==
 
-electron@^38.3.0:
-  version "38.3.0"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-38.3.0.tgz#5f8c8bc3153555832a465cbe271b0ae8117f4145"
-  integrity sha512-Wij4AzX4SAV0X/ktq+NrWrp5piTCSS8F6YWh1KAcG+QRtNzyns9XLKERP68nFHIwfprhxF2YCN2uj7nx9DaeJw==
+electron@^39.1.1:
+  version "39.1.1"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-39.1.1.tgz#cc15ceab2f54ce31ca0fa7606f17ddfa61c6fd3e"
+  integrity sha512-VuFEI1yQ7BH3RYI5VZtwFlzGp4rpPRd5oEc26ZQIItVLcLTbXt4/O7o4hs+1fyg9Q3NvGAifgX5Vp5EBOIFpAg==
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^22.7.7"

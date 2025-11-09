@@ -14,7 +14,7 @@
     "electron-serve": "^3.0.0"
   },
   "devDependencies": {
-    "electron": "^38.3.0",
+    "electron": "^39.1.1",
     "electron-builder": "^26.0.12"
   }
 }
