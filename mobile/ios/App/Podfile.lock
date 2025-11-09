@@ -1,9 +1,9 @@
 PODS:
-  - Capacitor (7.4.3):
+  - Capacitor (7.4.4):
     - CapacitorCordova
   - CapacitorCommunitySafeArea (7.0.0-alpha.1):
     - Capacitor
-  - CapacitorCordova (7.4.3)
+  - CapacitorCordova (7.4.4)
   - CapacitorStatusBar (7.0.3):
     - Capacitor
 
@@ -24,9 +24,9 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@capacitor/status-bar"
 
 SPEC CHECKSUMS:
-  Capacitor: b4741ca7affb32c1b70debd03df92cbf522d8a80
+  Capacitor: 09d9ff8e9618e8c4b3cab2bbee34a17215dd2fef
   CapacitorCommunitySafeArea: cc370b4f8d4aa340e4616acef9b73eda41ba0914
-  CapacitorCordova: 435121e81a2df4d0034f0fb11fcefab5104cfdb5
+  CapacitorCordova: bf648a636f3c153f652d312ae145fb508b6ffced
   CapacitorStatusBar: 7d8fcbd6768db014bd721d75e246590b014928e8
 
 PODFILE CHECKSUM: 67605b188bb06ee6ff2cb2c5e98238e9215867d0
