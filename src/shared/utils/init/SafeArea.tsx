@@ -18,7 +18,7 @@ export function SafeAreaInitializer() {
         // navigationBarContent: "light",
       },
     });
-  }, [resolvedTheme]);
+  }, [reversedTheme]);
 
   return null; // this component doesn't render anything
 }
